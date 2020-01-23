@@ -14,3 +14,4 @@ RE: Variables, types, constants, for loop, slices and homework
 10. Errors
 
 Notes: 
+
