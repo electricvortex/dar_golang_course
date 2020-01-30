@@ -17,21 +17,25 @@ var (
 			Destination: &configFilePath,
 		},
 	}
+
+	commands = cli.Commands{}
+	command = &cli.Command{
+		Name: "printpath",
+		Action: PrintConfigFilePath,
+	}
+
 )
 
 func main(){
+	commands = append(commands, command)
 	app := cli.NewApp()
 	app.Flags = flags
-	app.Commands = cli.Commands{
-		&cli.Command{
-			Name: "printpath",
-			Action: PrintConfigFilePath,
-		},
-	}
+	app.Commands = commands
 	app.Run(os.Args)
 }
 
 func PrintConfigFilePath(c *cli.Context) error {
+	fmt.Println(c.Args().First())
 	fmt.Printf(configFilePath)
 	return nil
 }
