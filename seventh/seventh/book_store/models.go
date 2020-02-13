@@ -5,20 +5,20 @@ type BookStore interface {
 
 	Create(book *Book) (*Book, error)
 
-	GetBook(id int64) (*Book, error)
+	GetBook(id string) (*Book, error)
 
 	ListBooks() ([]*Book, error)
 
-	UpdateBook(id int64, book *Book) (*Book, error)
+	UpdateBook(id string, book *Book) (*Book, error)
 
-	DeleteBook(id int64)  error
+	DeleteBook(id string)  error
 
 	SaveBooks(filepath string) error
 }
 
 
 type Book struct {
-	ID int64 `json:"id"`
+	ID string `json:"id"`
 	Title string `json:"title,omitempty"`
 	Author string `json:"author,omitempty"`
 	Description string `json:"description,omitempty"`
